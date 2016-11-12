@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +48,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     InternetConnection ic;
 
+    CardView registerCardView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,18 +58,17 @@ public class RegisterActivity extends AppCompatActivity {
         ic = new InternetConnection();
 
         getSupportActionBar().setTitle("Регистрация");
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         nameEditText = (EditText) findViewById(R.id.nameEditText);
         surnameEditText = (EditText) findViewById(R.id.surnameEditText);
         loginEditText = (EditText) findViewById(R.id.loginEditText);
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);
 
-        registerButton = (Button) findViewById(R.id.registerButton);
-
+        registerCardView = (CardView) findViewById(R.id.sign_up_button);
         checkBox = (CheckBox) findViewById(R.id.checkBox);
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
+        registerCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 name = nameEditText.getText().toString();
@@ -123,7 +125,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(final Boolean success) {
-            progressDialog.dismiss();
+
 
             try {
                 JSONObject json = new JSONObject(response);
@@ -153,6 +155,8 @@ public class RegisterActivity extends AppCompatActivity {
                         .setCancelable(true)
                         .show();
             }
+
+            progressDialog.dismiss();
         }
     }
 }

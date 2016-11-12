@@ -5,16 +5,13 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.toprogrammers.smartcamp.smartcamp.member.MemberMainActivity;
@@ -100,7 +97,6 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(final Boolean success) {
-            progressDialog.dismiss();
 
             try {
                 JSONObject json = new JSONObject(response);
@@ -130,6 +126,8 @@ public class LoginActivity extends AppCompatActivity {
                         .setCancelable(true)
                         .show();
             }
+
+            progressDialog.dismiss();
         }
     }
 }
