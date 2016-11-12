@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.toprogrammers.smartcamp.smartcamp.LoginActivity;
@@ -45,9 +46,10 @@ public class MemberMainActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
     private TabLayout tabLayout;
-    ProgressDialog progressDialog;
-    String response;
-    InternetConnection ic;
+    static ProgressDialog progressDialog;
+    static String response;
+    static InternetConnection ic;
+    private static Schedule schedule;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +128,7 @@ public class MemberMainActivity extends AppCompatActivity {
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+        View rootView;
 
         public PlaceholderFragment() {
         }
@@ -145,7 +148,7 @@ public class MemberMainActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView;
+
             switch (getArguments().getInt(ARG_SECTION_NUMBER)){
                 case 2:rootView = inflater.inflate(R.layout.fragment_member_tasks, container, false);
                     break;
@@ -160,14 +163,40 @@ public class MemberMainActivity extends AppCompatActivity {
             super.onViewCreated(view, savedInstanceState);
 
             if(getArguments().getInt(ARG_SECTION_NUMBER)==1){
+                new ScheduleTask().execute();
+            }
+        }
 
+        public class ScheduleTask extends AsyncTask<Void, Void, Boolean> {
 
-                Shedule shedule;
-                int dataPosition=1;
-                String array[] = new String[10];
-                TimetableListAdapter listAdapter = new TimetableListAdapter(getContext(), shedule, dataPosition);
+            @Override
+            protected void onPreExecute() {
+                progressDialog = new ProgressDialog(LoginActivity.this);
+                progressDialog.setIndeterminate(true);
+                progressDialog.setMessage("Загрузка...");
+                progressDialog.setCancelable(true);
+            }
 
+            @Override
+            protected Boolean doInBackground(Void... params) {
 
+                response = ic.makeGETrequest(
+                        new String[] {
+                                "method", "schedule.get",
+                                "tour_id", user.getTourId()
+                        });
+
+                return true;
+            }
+
+            @Override
+            protected void onPostExecute(final Boolean success) {
+                progressDialog.dismiss();
+                schedule = new Schedule(getContext(), response);
+                schedule.updateInfo();
+                TimetableListAdapter listAdapter = new TimetableListAdapter(getContext(), schedule, dataPosition);
+                ListView listView = (ListView) rootView.findViewById(R.id.timetable);
+                listView.setAdapter(listAdapter);
             }
         }
     }
@@ -205,33 +234,5 @@ public class MemberMainActivity extends AppCompatActivity {
             }
             return null;
         }
-    }
-
-    public class ScheduleTask extends AsyncTask<Void, Void, Boolean> {
-
-        @Override
-        protected void onPreExecute() {
-            progressDialog = new ProgressDialog(LoginActivity.this);
-            progressDialog.setIndeterminate(true);
-            progressDialog.setMessage("Загрузка...");
-            progressDialog.setCancelable(true);
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-
-            response = ic.makeGETrequest(
-                    new String[] {
-                            "method", "user.signin",
-                            "login", login,
-                            "password", password
-                    });
-
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            progressDialog.dismiss();
     }
 }

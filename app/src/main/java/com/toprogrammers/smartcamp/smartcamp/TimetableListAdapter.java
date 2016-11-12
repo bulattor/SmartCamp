@@ -24,13 +24,13 @@ public class TimetableListAdapter extends BaseAdapter {
 
     private static LayoutInflater inflater = null;
 
-    Shedule shedule;
+    Schedule schedule;
     int dataPosition;
 
-    public TimetableListAdapter(Activity context, Shedule shedule, int dataPosition) {
+    public TimetableListAdapter(Activity context, Schedule schedule, int dataPosition) {
 
         this.context = context;
-        this.shedule = shedule;
+        this.schedule = schedule;
         this.dataPosition = dataPosition;
 
         inflater = ( LayoutInflater )context.
@@ -54,14 +54,14 @@ public class TimetableListAdapter extends BaseAdapter {
         TextView time = (TextView) view.findViewById(R.id.time);
         TextView event = (TextView) view.findViewById(R.id.event);
 
-        time.setText(shedule.getTaskTime(dataPosition, position));
-        event.setText(shedule.getTaskTodo(dataPosition, position));
+        time.setText(schedule.getTaskTime(dataPosition, position));
+        event.setText(schedule.getTaskTodo(dataPosition, position));
         return view;
 
     }
 
     @Override
     public int getCount() {
-        return shedule.getTasksCount(dataPosition);
+        return schedule.getTasksCount(dataPosition);
     }
 }
