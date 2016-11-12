@@ -1,6 +1,9 @@
 package com.toprogrammers.smartcamp.smartcamp.member;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -28,6 +31,8 @@ import com.toprogrammers.smartcamp.smartcamp.LoginActivity;
 import com.toprogrammers.smartcamp.smartcamp.R;
 import com.toprogrammers.smartcamp.smartcamp.TimetableListAdapter;
 import com.toprogrammers.smartcamp.smartcamp.objects.InternetConnection;
+import com.toprogrammers.smartcamp.smartcamp.objects.Schedule;
+import com.toprogrammers.smartcamp.smartcamp.objects.User;
 
 public class MemberMainActivity extends AppCompatActivity {
 
@@ -47,15 +52,18 @@ public class MemberMainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private TabLayout tabLayout;
     static ProgressDialog progressDialog;
-    static String response;
     static InternetConnection ic;
-    private static Schedule schedule;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_main);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("APP", Context.MODE_PRIVATE);
+        if(!sharedPreferences.getBoolean("userIsLoggedIn", false)){
+            startActivity(new Intent(MemberMainActivity.this, LoginActivity.class));
+            finish();
+        }
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -128,7 +136,11 @@ public class MemberMainActivity extends AppCompatActivity {
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+        Schedule schedule;
+        User user;
         View rootView;
+        int dataPosition;
+        String response;
 
         public PlaceholderFragment() {
         }
@@ -162,6 +174,8 @@ public class MemberMainActivity extends AppCompatActivity {
         public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
+            user = new User(getActivity());
+            dataPosition = 0;
             if(getArguments().getInt(ARG_SECTION_NUMBER)==1){
                 new ScheduleTask().execute();
             }
@@ -171,7 +185,7 @@ public class MemberMainActivity extends AppCompatActivity {
 
             @Override
             protected void onPreExecute() {
-                progressDialog = new ProgressDialog(LoginActivity.this);
+                progressDialog = new ProgressDialog(getActivity());
                 progressDialog.setIndeterminate(true);
                 progressDialog.setMessage("Загрузка...");
                 progressDialog.setCancelable(true);
@@ -183,7 +197,7 @@ public class MemberMainActivity extends AppCompatActivity {
                 response = ic.makeGETrequest(
                         new String[] {
                                 "method", "schedule.get",
-                                "tour_id", user.getTourId()
+                                "tour_id", String.valueOf(user.getTourId())
                         });
 
                 return true;
@@ -194,7 +208,7 @@ public class MemberMainActivity extends AppCompatActivity {
                 progressDialog.dismiss();
                 schedule = new Schedule(getContext(), response);
                 schedule.updateInfo();
-                TimetableListAdapter listAdapter = new TimetableListAdapter(getContext(), schedule, dataPosition);
+                TimetableListAdapter listAdapter = new TimetableListAdapter(getActivity(), schedule, dataPosition);
                 ListView listView = (ListView) rootView.findViewById(R.id.timetable);
                 listView.setAdapter(listAdapter);
             }

@@ -2,21 +2,13 @@ package com.toprogrammers.smartcamp.smartcamp;
 
 import android.app.Activity;
 import android.content.Context;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.tatarchaapps.app.tatarcha.R;
-import com.tatarchaapps.app.tatarcha.objects.Dictionary;
-
-import java.io.IOException;
+import com.toprogrammers.smartcamp.smartcamp.objects.Schedule;
 
 public class TimetableListAdapter extends BaseAdapter {
 
@@ -62,6 +54,6 @@ public class TimetableListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return schedule.getTasksCount(dataPosition);
+        return schedule.getTaskCount(dataPosition);
     }
 }
