@@ -1,0 +1,779 @@
+Index: .idea/libraries/design_24_1_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/design_24_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/design_24_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,15 +0,0 @@
+-<component name="libraryTable">
+-  <library name="design-24.1.1">
+-    <ANNOTATIONS>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/design/24.1.1/annotations.zip!/" />
+-    </ANNOTATIONS>
+-    <CLASSES>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/design/24.1.1/jars/classes.jar!/" />
+-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/design/24.1.1/res" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES>
+-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/design/24.1.1/design-24.1.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_login.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_login.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ app/src/main/res/layout/activity_login.xml	(revision )
+@@ -1,4 +1,4 @@
+-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+@@ -10,68 +10,43 @@
+     android:paddingTop="@dimen/activity_vertical_margin"
+     tools:context="com.toprogrammers.smartcamp.smartcamp.LoginActivity">
+ 
+-    <!-- Login progress -->
+-    <ProgressBar
+-        android:id="@+id/login_progress"
+-        style="?android:attr/progressBarStyleLarge"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:layout_marginBottom="8dp"
+-        android:visibility="gone" />
+ 
+-    <ScrollView
+-        android:id="@+id/login_form"
+-        android:layout_width="match_parent"
+-        android:layout_height="match_parent">
+-
+-        <LinearLayout
++    <LinearLayout
+-            android:id="@+id/email_login_form"
++        android:orientation="vertical"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
+-            android:orientation="vertical">
++        android:id="@+id/linearLayout">
+ 
+-            <android.support.design.widget.TextInputLayout
++        <EditText
+-                android:layout_width="match_parent"
++            android:layout_width="match_parent"
+-                android:layout_height="wrap_content">
+-
+-                <AutoCompleteTextView
+-                    android:id="@+id/email"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
++            android:layout_height="wrap_content"
+-                    android:hint="@string/prompt_email"
+-                    android:inputType="textEmailAddress"
+-                    android:maxLines="1"
+-                    android:singleLine="true" />
++            android:id="@+id/loginEditText"
++            android:hint="Логин"
++            android:layout_marginTop="10dp" />
+ 
+-            </android.support.design.widget.TextInputLayout>
+-
+-            <android.support.design.widget.TextInputLayout
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content">
+-
+-                <EditText
++        <EditText
+-                    android:id="@+id/password"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
+-                    android:hint="@string/prompt_password"
+-                    android:imeActionId="@+id/login"
+-                    android:imeActionLabel="@string/action_sign_in_short"
+-                    android:imeOptions="actionUnspecified"
+-                    android:inputType="textPassword"
++            android:inputType="textPassword"
+-                    android:maxLines="1"
+-                    android:singleLine="true" />
++            android:ems="10"
++            android:id="@+id/passwordEditText"
++            android:hint="Пароль"
++            android:layout_marginTop="10dp" />
++    </LinearLayout>
+ 
+-            </android.support.design.widget.TextInputLayout>
+-
+-            <Button
++    <Button
+-                android:id="@+id/email_sign_in_button"
+-                style="?android:textAppearanceSmall"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
+-                android:layout_marginTop="16dp"
+-                android:text="@string/action_sign_in"
+-                android:textStyle="bold" />
++        android:text="Регистрация"
++        android:id="@+id/signupButton"
++        android:layout_alignParentBottom="true"
++        android:layout_centerHorizontal="true" />
+ 
+-        </LinearLayout>
+-    </ScrollView>
+-</LinearLayout>
++    <Button
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="Войти"
++        android:id="@+id/signinButton"
++        android:layout_below="@+id/linearLayout"
++        android:layout_alignParentStart="true" />
++</RelativeLayout>
+Index: .idea/libraries/exposed_instrumentation_api_publish_0_5.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/exposed_instrumentation_api_publish_0_5.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/exposed_instrumentation_api_publish_0_5.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,12 +0,0 @@
+-<component name="libraryTable">
+-  <library name="exposed-instrumentation-api-publish-0.5">
+-    <CLASSES>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support.test/exposed-instrumentation-api-publish/0.5/jars/classes.jar!/" />
+-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support.test/exposed-instrumentation-api-publish/0.5/res" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES>
+-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/test/exposed-instrumentation-api-publish/0.5/exposed-instrumentation-api-publish-0.5-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/junit_4_12.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/junit_4_12.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/junit_4_12.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,11 +0,0 @@
+-<component name="libraryTable">
+-  <library name="junit-4.12">
+-    <CLASSES>
+-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar!/" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES>
+-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: app/src/test/java/com/toprogrammers/smartcamp/smartcamp/ExampleUnitTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/test/java/com/toprogrammers/smartcamp/smartcamp/ExampleUnitTest.java	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ app/src/test/java/com/toprogrammers/smartcamp/smartcamp/ExampleUnitTest.java	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,17 +0,0 @@
+-package com.toprogrammers.smartcamp.smartcamp;
+-
+-import org.junit.Test;
+-
+-import static org.junit.Assert.*;
+-
+-/**
+- * Example local unit test, which will execute on the development machine (host).
+- *
+- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+- */
+-public class ExampleUnitTest {
+-    @Test
+-    public void addition_isCorrect() throws Exception {
+-        assertEquals(4, 2 + 2);
+-    }
+-}
+\ No newline at end of file
+Index: .idea/libraries/espresso_core_2_2_2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/espresso_core_2_2_2.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/espresso_core_2_2_2.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,12 +0,0 @@
+-<component name="libraryTable">
+-  <library name="espresso-core-2.2.2">
+-    <CLASSES>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-core/2.2.2/jars/classes.jar!/" />
+-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-core/2.2.2/res" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES>
+-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/test/espresso/espresso-core/2.2.2/espresso-core-2.2.2-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/runner_0_5.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/runner_0_5.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/runner_0_5.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,15 +0,0 @@
+-<component name="libraryTable">
+-  <library name="runner-0.5">
+-    <ANNOTATIONS>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support.test/runner/0.5/annotations.zip!/" />
+-    </ANNOTATIONS>
+-    <CLASSES>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support.test/runner/0.5/jars/classes.jar!/" />
+-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support.test/runner/0.5/res" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES>
+-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/test/runner/0.5/runner-0.5-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/support_vector_drawable_24_1_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/support_vector_drawable_24_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/support_vector_drawable_24_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,12 +0,0 @@
+-<component name="libraryTable">
+-  <library name="support-vector-drawable-24.1.1">
+-    <CLASSES>
+-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.1.1/res" />
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.1.1/jars/classes.jar!/" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES>
+-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-vector-drawable/24.1.1/support-vector-drawable-24.1.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/misc.xml	(revision )
+@@ -37,26 +37,10 @@
+     <ConfirmationsSetting value="0" id="Add" />
+     <ConfirmationsSetting value="0" id="Remove" />
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+     <option name="id" value="Android" />
+-  </component>
+-  <component name="masterDetails">
+-    <states>
+-      <state key="ProjectJDKs.UI">
+-        <settings>
+-          <last-edited>1.8</last-edited>
+-          <splitter-proportions>
+-            <option name="proportions">
+-              <list>
+-                <option value="0.2" />
+-              </list>
+-            </option>
+-          </splitter-proportions>
+-        </settings>
+-      </state>
+-    </states>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/libraries/hamcrest_integration_1_3.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/hamcrest_integration_1_3.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/hamcrest_integration_1_3.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,9 +0,0 @@
+-<component name="libraryTable">
+-  <library name="hamcrest-integration-1.3">
+-    <CLASSES>
+-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-integration/1.3/5de0c73fef18917cd85d0ab70bb23818685e4dfd/hamcrest-integration-1.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES />
+-  </library>
+-</component>
+\ No newline at end of file
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ app/build.gradle	(revision )
+@@ -2,7 +2,8 @@
+ 
+ android {
+     compileSdkVersion 24
+-    buildToolsVersion "24.0.2"
++    buildToolsVersion "24.0.0"
++    useLibrary 'org.apache.http.legacy'
+     defaultConfig {
+         applicationId "com.toprogrammers.smartcamp.smartcamp"
+         minSdkVersion 19
+@@ -26,5 +27,4 @@
+     })
+     compile 'com.android.support:appcompat-v7:24.1.1'
+     compile 'com.android.support:design:24.1.1'
+-    testCompile 'junit:junit:4.12'
+ }
+Index: .idea/libraries/support_annotations_24_1_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/support_annotations_24_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/support_annotations_24_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,11 +0,0 @@
+-<component name="libraryTable">
+-  <library name="support-annotations-24.1.1">
+-    <CLASSES>
+-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.1.1/support-annotations-24.1.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES>
+-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.1.1/support-annotations-24.1.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/modules.xml	(revision )
+@@ -1,0 +1,0 @@
+Index: .idea/libraries/jsr305_2_0_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/jsr305_2_0_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/jsr305_2_0_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,9 +0,0 @@
+-<component name="libraryTable">
+-  <library name="jsr305-2.0.1">
+-    <CLASSES>
+-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES />
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/animated_vector_drawable_24_1_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/animated_vector_drawable_24_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/animated_vector_drawable_24_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,12 +0,0 @@
+-<component name="libraryTable">
+-  <library name="animated-vector-drawable-24.1.1">
+-    <CLASSES>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.1.1/jars/classes.jar!/" />
+-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.1.1/res" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES>
+-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/animated-vector-drawable/24.1.1/animated-vector-drawable-24.1.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/javawriter_2_1_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/javawriter_2_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/javawriter_2_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,9 +0,0 @@
+-<component name="libraryTable">
+-  <library name="javawriter-2.1.1">
+-    <CLASSES>
+-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup/javawriter/2.1.1/67ff45d9ae02e583d0f9b3432a5ebbe05c30c966/javawriter-2.1.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES />
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/android_android_24.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/android_android_24.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/android_android_24.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,9 +0,0 @@
+-<component name="libraryTable">
+-  <library name="android-android-24">
+-    <CLASSES>
+-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/platforms/android-24/android.jar!/" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES />
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/recyclerview_v7_24_1_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/recyclerview_v7_24_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/recyclerview_v7_24_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,15 +0,0 @@
+-<component name="libraryTable">
+-  <library name="recyclerview-v7-24.1.1">
+-    <ANNOTATIONS>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.1.1/annotations.zip!/" />
+-    </ANNOTATIONS>
+-    <CLASSES>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.1.1/jars/classes.jar!/" />
+-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.1.1/res" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES>
+-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/recyclerview-v7/24.1.1/recyclerview-v7-24.1.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/vcs.xml	(revision )
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: app/src/androidTest/java/com/toprogrammers/smartcamp/smartcamp/ExampleInstrumentedTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/androidTest/java/com/toprogrammers/smartcamp/smartcamp/ExampleInstrumentedTest.java	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ app/src/androidTest/java/com/toprogrammers/smartcamp/smartcamp/ExampleInstrumentedTest.java	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,26 +0,0 @@
+-package com.toprogrammers.smartcamp.smartcamp;
+-
+-import android.content.Context;
+-import android.support.test.InstrumentationRegistry;
+-import android.support.test.runner.AndroidJUnit4;
+-
+-import org.junit.Test;
+-import org.junit.runner.RunWith;
+-
+-import static org.junit.Assert.*;
+-
+-/**
+- * Instrumentation test, which will execute on an Android device.
+- *
+- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+- */
+-@RunWith(AndroidJUnit4.class)
+-public class ExampleInstrumentedTest {
+-    @Test
+-    public void useAppContext() throws Exception {
+-        // Context of the app under test.
+-        Context appContext = InstrumentationRegistry.getTargetContext();
+-
+-        assertEquals("com.toprogrammers.smartcamp.smartcamp", appContext.getPackageName());
+-    }
+-}
+Index: .idea/libraries/rules_0_5.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/rules_0_5.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/rules_0_5.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,15 +0,0 @@
+-<component name="libraryTable">
+-  <library name="rules-0.5">
+-    <ANNOTATIONS>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support.test/rules/0.5/annotations.zip!/" />
+-    </ANNOTATIONS>
+-    <CLASSES>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support.test/rules/0.5/jars/classes.jar!/" />
+-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support.test/rules/0.5/res" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES>
+-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/test/rules/0.5/rules-0.5-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/javax_annotation_api_1_2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/javax_annotation_api_1_2.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/javax_annotation_api_1_2.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,9 +0,0 @@
+-<component name="libraryTable">
+-  <library name="javax.annotation-api-1.2">
+-    <CLASSES>
+-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.annotation/javax.annotation-api/1.2/479c1e06db31c432330183f5cae684163f186146/javax.annotation-api-1.2.jar!/" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES />
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/hamcrest_core_1_3.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/hamcrest_core_1_3.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/hamcrest_core_1_3.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,11 +0,0 @@
+-<component name="libraryTable">
+-  <library name="hamcrest-core-1.3">
+-    <CLASSES>
+-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES>
+-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/1dc37250fbc78e23a65a67fbbaf71d2e9cbc3c0b/hamcrest-core-1.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/runConfigurations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/runConfigurations.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/runConfigurations.xml	(revision )
+@@ -1,0 +1,0 @@
+Index: .idea/libraries/appcompat_v7_24_1_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/appcompat_v7_24_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/appcompat_v7_24_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,15 +0,0 @@
+-<component name="libraryTable">
+-  <library name="appcompat-v7-24.1.1">
+-    <ANNOTATIONS>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/annotations.zip!/" />
+-    </ANNOTATIONS>
+-    <CLASSES>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/jars/classes.jar!/" />
+-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/res" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES>
+-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/24.1.1/appcompat-v7-24.1.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/espresso_idling_resource_2_2_2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/espresso_idling_resource_2_2_2.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/espresso_idling_resource_2_2_2.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,12 +0,0 @@
+-<component name="libraryTable">
+-  <library name="espresso-idling-resource-2.2.2">
+-    <CLASSES>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-idling-resource/2.2.2/jars/classes.jar!/" />
+-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-idling-resource/2.2.2/res" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES>
+-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/test/espresso/espresso-idling-resource/2.2.2/espresso-idling-resource-2.2.2-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/compiler.xml	(revision )
+@@ -1,0 +1,0 @@
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/gradle.xml	(revision )
+@@ -3,16 +3,20 @@
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+-        <option name="distributionType" value="LOCAL" />
++        <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+-        <option name="gradleHome" value="C:\Program Files\Android\Android Studio\gradle\gradle-2.14.1" />
+         <option name="modules">
+           <set>
+             <option value="$PROJECT_DIR$" />
+             <option value="$PROJECT_DIR$/app" />
+           </set>
+         </option>
+-        <option name="resolveModulePerSourceSet" value="false" />
++        <option name="myModules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++            <option value="$PROJECT_DIR$/app" />
++          </set>
++        </option>
+       </GradleProjectSettings>
+     </option>
+   </component>
+\ No newline at end of file
+Index: app/src/main/java/com/toprogrammers/smartcamp/smartcamp/LoginActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/toprogrammers/smartcamp/smartcamp/LoginActivity.java	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ app/src/main/java/com/toprogrammers/smartcamp/smartcamp/LoginActivity.java	(revision )
+@@ -1,0 +1,0 @@
+Index: .idea/libraries/support_v4_24_1_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/support_v4_24_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/support_v4_24_1_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,16 +0,0 @@
+-<component name="libraryTable">
+-  <library name="support-v4-24.1.1">
+-    <ANNOTATIONS>
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/annotations.zip!/" />
+-    </ANNOTATIONS>
+-    <CLASSES>
+-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/res" />
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/libs/internal_impl-24.1.1.jar!/" />
+-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/classes.jar!/" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES>
+-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/24.1.1/support-v4-24.1.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ app/src/main/AndroidManifest.xml	(revision )
+@@ -16,6 +16,10 @@
+         <activity
+             android:name=".LoginActivity"
+             android:label="@string/app_name">
++        </activity>
++        <activity
++            android:name=".RegisterActivity"
++            android:label="@string/app_name">
+ 
+         </activity>
+         <activity
+\ No newline at end of file
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/encodings.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/encodings.xml	(revision )
+@@ -1,0 +1,0 @@
+Index: .idea/libraries/javax_inject_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/javax_inject_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/javax_inject_1.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,9 +0,0 @@
+-<component name="libraryTable">
+-  <library name="javax.inject-1">
+-    <CLASSES>
+-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES />
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/hamcrest_library_1_3.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/hamcrest_library_1_3.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
++++ .idea/libraries/hamcrest_library_1_3.xml	(revision 6e9b343da08c74aaff5f2db26986a5d0c0f82766)
+@@ -1,9 +0,0 @@
+-<component name="libraryTable">
+-  <library name="hamcrest-library-1.3">
+-    <CLASSES>
+-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/4785a3c21320980282f9f33d0d1264a69040538f/hamcrest-library-1.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES />
+-  </library>
+-</component>
+\ No newline at end of file
