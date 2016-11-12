@@ -1,5 +1,7 @@
 package com.toprogrammers.smartcamp.smartcamp.member;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -18,9 +20,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.toprogrammers.smartcamp.smartcamp.LoginActivity;
 import com.toprogrammers.smartcamp.smartcamp.R;
+import com.toprogrammers.smartcamp.smartcamp.TimetableListAdapter;
+import com.toprogrammers.smartcamp.smartcamp.objects.InternetConnection;
 
 public class MemberMainActivity extends AppCompatActivity {
 
@@ -39,6 +45,9 @@ public class MemberMainActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
     private TabLayout tabLayout;
+    ProgressDialog progressDialog;
+    String response;
+    InternetConnection ic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,6 +158,17 @@ public class MemberMainActivity extends AppCompatActivity {
         @Override
         public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
+
+            if(getArguments().getInt(ARG_SECTION_NUMBER)==1){
+
+
+                Shedule shedule;
+                int dataPosition=1;
+                String array[] = new String[10];
+                TimetableListAdapter listAdapter = new TimetableListAdapter(getContext(), shedule, dataPosition);
+
+
+            }
         }
     }
 
@@ -185,5 +205,33 @@ public class MemberMainActivity extends AppCompatActivity {
             }
             return null;
         }
+    }
+
+    public class ScheduleTask extends AsyncTask<Void, Void, Boolean> {
+
+        @Override
+        protected void onPreExecute() {
+            progressDialog = new ProgressDialog(LoginActivity.this);
+            progressDialog.setIndeterminate(true);
+            progressDialog.setMessage("Загрузка...");
+            progressDialog.setCancelable(true);
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+
+            response = ic.makeGETrequest(
+                    new String[] {
+                            "method", "user.signin",
+                            "login", login,
+                            "password", password
+                    });
+
+            return true;
+        }
+
+        @Override
+        protected void onPostExecute(final Boolean success) {
+            progressDialog.dismiss();
     }
 }
