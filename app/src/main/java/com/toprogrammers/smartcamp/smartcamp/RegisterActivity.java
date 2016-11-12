@@ -70,9 +70,9 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 name = nameEditText.getText().toString();
-                surname = nameEditText.getText().toString();
-                login = nameEditText.getText().toString();
-                password = ic.md5Custom(nameEditText.getText().toString());
+                surname = surnameEditText.getText().toString();
+                login = loginEditText.getText().toString();
+                password = ic.md5Custom(passwordEditText.getText().toString());
                 if (checkBox.isChecked()) {
                     status = String.valueOf(1);
                 } else {
@@ -110,7 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             response = ic.makeGETrequest(
                     new String[] {
-                            "method", "user.signin",
+                            "method", "user.signup",
                             "name", name,
                             "surname", surname,
                             "login", login,

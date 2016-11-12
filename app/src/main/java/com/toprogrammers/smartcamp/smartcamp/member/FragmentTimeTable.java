@@ -67,7 +67,20 @@ public class FragmentTimeTable  extends Fragment {
 
         new GetTask().execute();
 
+        updateUserInfo();
         return view;
+    }
+
+    public void updateUserInfo() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                user = new User(getActivity(), ic.makeGETrequest(new String[]{
+                        "method", "user.get",
+                        "user_id", String.valueOf(user.getId())}));
+                user.updateInfo();
+            }
+        }).start();
     }
 
     public class GetTask extends AsyncTask<Void, Void, Boolean> {
